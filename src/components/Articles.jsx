@@ -18,7 +18,7 @@ const Articles = () => {
             <h2>Latest Stories</h2>
             <ul>
                 {articles.map((article) => {
-                    return <Article key={article.article_id} article={article}/>
+                    return <Article className="article" key={article.article_id} article={article}/>
                 })}
             </ul>
         </section>

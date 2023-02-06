@@ -10,7 +10,4 @@ export const fetchArticles = () => {
     .then(({data}) => {
         return data;
     })
-    .catch((err) => {
-        console.log(err);
-    })
 }
