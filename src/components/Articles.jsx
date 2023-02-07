@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../utils";
 import "../CSS/Articles.css"
 import Article from "./Article"
+import { Link } from 'react-router-dom'; 
 
 const Articles = () => {
 
@@ -18,8 +19,11 @@ const Articles = () => {
             <h2>Latest Stories</h2>
             <ul>
                 {articles.map((article) => {
-                    return <Article className="article" key={article.article_id} article={article}/>
-                })}
+                    return (
+                    <Link className="article-link" to={`/articles/${article.article_id}`} key={article.article_id}>
+                    <Article className="article" article={article}/>
+                    </Link>
+                )})}
             </ul>
         </section>
     )
