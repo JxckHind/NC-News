@@ -24,8 +24,4 @@ section > ul {
         flex-direction: row;
         flex-wrap: wrap;
     }
-
-    .article {
-        max-width: 408px;
-    }
 }
