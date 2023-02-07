@@ -27,3 +27,11 @@ export const fetchComments = (article_id) => {
         return data;
     })
 }
+
+export const patchArticle = (article_id, body) => {
+    return newsApi
+    .patch(`articles/${article_id}`, body)
+    .then(({data}) => {
+        return data;
+    })
+}

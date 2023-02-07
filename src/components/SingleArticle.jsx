@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchArticle } from '../utils';
 import "../CSS/SingleArticle.css"
 import Comments from './Comments';
+import Votes from './Votes';
 
 const SingleArticle = () => {
 
@@ -29,6 +30,7 @@ const SingleArticle = () => {
             <p id="single_article_topic">Topic: {(article.topic)?.toUpperCase()}</p>
             <img id="single_article_img" src={article.article_img_url} alt={article.title}/>
             <p id="single_article_author">Author: {article.author}</p>
+            <Votes article={article} setArticle={setArticle}/>
             <Comments article_id={article_id}/>
         </section>
     )
