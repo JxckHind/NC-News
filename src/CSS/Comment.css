@@ -1,0 +1,10 @@
+.comment {
+    border: solid 2px blue;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.comment-body {
+    font-weight: bold;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchArticle } from '../utils';
 import "../CSS/SingleArticle.css"
+import Comments from './Comments';
 
 const SingleArticle = () => {
 
@@ -17,11 +18,12 @@ const SingleArticle = () => {
 
     return (
         <section className="single_article_grid">
-            <h3 id="single_article_title">{article.title}</h3>
+            <h2 id="single_article_title">{article.title}</h2>
             <p id="single_article_date">{date}</p>
             <p id="single_article_topic">Topic: {(article.topic)?.toUpperCase()}</p>
             <img id="single_article_img" src={article.article_img_url} alt={article.title}/>
             <p id="single_article_author">Author: {article.author}</p>
+            <Comments article_id={article_id}/>
         </section>
     )
 }
