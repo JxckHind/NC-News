@@ -6,13 +6,19 @@ import { Link } from 'react-router-dom';
 
 const Articles = () => {
 
+    const [isLoading, setLoading] = useState(true);
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         fetchArticles().then((articlesObj) => {
             setArticles(articlesObj.articles);
+            setLoading(false);
         })
     }, [])
+
+    if (isLoading) {
+        return <p className="articles-loading">Loading...</p>
+    }
 
     return (
         <section>
