@@ -11,3 +11,11 @@ export const fetchArticles = () => {
         return data;
     })
 }
+
+export const fetchArticle = (article_id) => {
+    return newsApi
+    .get(`articles/${article_id}`)
+    .then(({data}) => {
+        return data;
+    })
+}

@@ -1,0 +1,59 @@
+.single_article_grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "title img"
+        "date img"
+        "topic img"
+        "topic author";
+    border: solid black 2px;
+    margin: 20px;
+    padding: 20px; 
+}
+
+@media only screen and (max-width: 725px) {
+    .single_article_grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #single_article_title {
+        text-align: center;
+    }
+}
+
+#single_article_title {
+    grid-area: title;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#single_article_date {
+    grid-area: date;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#single_article_author {
+    grid-area: author;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#single_article_topic {
+    grid-area: topic;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#single_article_img {
+    grid-area: img;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
