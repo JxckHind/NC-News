@@ -1,0 +1,11 @@
+nav > * {
+    padding: 20px;
+    font-size: larger;
+    text-decoration: none;
+    color: black;
+}
+
+.nav:hover {
+    color:blue;
+    font-weight: bold;
+}

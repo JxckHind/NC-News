@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 import { fetchArticles } from "../utils";
 import "../CSS/Articles.css"
 import Article from "./Article"
-import { Link } from 'react-router-dom'; 
+import { useLocation, Link } from 'react-router-dom'; 
 
 const Articles = () => {
 
     const [isLoading, setLoading] = useState(true);
     const [articles, setArticles] = useState([]);
+    const {search} = useLocation();
 
     useEffect(() => {
-        fetchArticles().then((articlesObj) => {
+        fetchArticles(search).then((articlesObj) => {
             setArticles(articlesObj.articles);
             setLoading(false);
         })
-    }, [])
+    }, [search])
 
     if (isLoading) {
         return <p className="articles-loading">Loading...</p>

@@ -21,7 +21,7 @@ const Comments = ({article_id}) => {
 
     return (
         <section>
-            <h3>Comments:</h3>
+            <h3 className="comments-title">Comments:</h3>
             <ul>
                 {comments.map((comment) => {
                     return <Comment key={comment.comment_id} comment={comment}/>
