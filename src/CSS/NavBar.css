@@ -1,4 +1,12 @@
-nav > * {
+.navbar {
+    padding-left: 0px;
+}
+
+.navbar > li {
+    display: inline-block;
+}
+
+.navbar > li > * {
     padding: 20px;
     font-size: larger;
     text-decoration: none;

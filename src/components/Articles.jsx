@@ -10,6 +10,9 @@ const Articles = () => {
     const [articles, setArticles] = useState([]);
     const {search} = useLocation();
 
+    const topic = search.match(/=(.*)/)?.[1];
+    const topicCap = topic?.[0].toUpperCase() + topic?.slice(1);
+
     useEffect(() => {
         fetchArticles(search).then((articlesObj) => {
             setArticles(articlesObj.articles);
@@ -23,7 +26,7 @@ const Articles = () => {
 
     return (
         <section>
-            <h2>Latest Stories</h2>
+            {topicCap ? <h2>{topicCap} News</h2> : <h2>Latest News</h2>}
             <ul>
                 {articles.map((article) => {
                     return (

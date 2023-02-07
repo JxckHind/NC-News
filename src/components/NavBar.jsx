@@ -3,12 +3,22 @@ import '../CSS/NavBar.css';
 
 const NavBar = () => {
     return (
-        <nav>
-            <Link className="nav" to="/articles">Home</Link>
-            <Link className="nav" to="/articles?topic=coding">Coding</Link>
-            <Link className="nav" to="/articles?topic=football">Football</Link>
-            <Link className="nav" to="/articles?topic=cooking">Cooking</Link>
-        </nav>
+        <section>
+            <ul className='navbar'>
+                <li>
+                    <Link className="nav" to="/articles">Home</Link>   
+                </li>
+                <li>
+                    <Link className="nav" to="/articles?topic=coding">Coding</Link>
+                </li>
+                <li>
+                    <Link className="nav" to="/articles?topic=football">Football</Link>
+                </li>
+                <li>
+                    <Link className="nav" to="/articles?topic=cooking">Cooking</Link>
+                </li>
+            </ul>
+        </section>
     )
 }
 
