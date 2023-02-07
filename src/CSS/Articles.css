@@ -12,6 +12,12 @@ section > ul {
     color:blue;
 }
 
+.articles-loading {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
 @media only screen and (min-width: 1010px) {
     section > ul {
         display: flex;

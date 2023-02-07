@@ -7,8 +7,8 @@ const Comment = ({comment}) => {
     return (
         <li className="comment">
             <p className="comment-body">{comment.body}</p>
-            <p>Author: {comment.author}</p>
-            <p>Date: {date}</p>
+            <p className="comment-info">Author: {comment.author}</p>
+            <p className="comment-info">Date: {date}</p>
         </li>
     )
 }

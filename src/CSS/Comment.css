@@ -8,3 +8,8 @@
 .comment-body {
     font-weight: bold;
 }
+
+.comment-info {
+    display: inline-block;
+    padding-right: 40px;
+}

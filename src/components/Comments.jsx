@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 import { fetchComments } from "../utils";
 import Comment from "./Comment";
+import "../CSS/Comments.css";
 
 const Comments = ({article_id}) => {
 
+    const [isLoading, setLoading] = useState(true);
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
         fetchComments(article_id).then((commentsObj) => {
             setComments(commentsObj.comments);
+            setLoading(false);
         })
     }, [article_id])
 
-    console.log(comments);
+    if (isLoading) {
+        return <p className="comments-loading">Loading...</p>
+    }
 
     return (
         <section>

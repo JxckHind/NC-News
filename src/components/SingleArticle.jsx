@@ -6,6 +6,7 @@ import Comments from './Comments';
 
 const SingleArticle = () => {
 
+    const [isLoading, setLoading] = useState(true);
     const [article, setArticle] = useState({})
     const {article_id} = useParams();
     const date = new Date(article.created_at).toLocaleDateString()
@@ -13,8 +14,13 @@ const SingleArticle = () => {
     useEffect(() => {
         fetchArticle(article_id).then((articleObj) => {
             setArticle(articleObj.article);
+            setLoading(false);
         })
     }, [article_id])
+
+    if (isLoading) {
+        return <p className="article-loading">Loading...</p>
+    }
 
     return (
         <section className="single_article_grid">
