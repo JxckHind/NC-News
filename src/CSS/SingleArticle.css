@@ -32,9 +32,9 @@
 
 #single_article_title {
     grid-area: title;
+    padding-left: 0;
     margin-top: 16px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
 #single_article_date {
