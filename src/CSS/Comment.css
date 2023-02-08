@@ -7,6 +7,9 @@
 
 .comment-body {
     font-weight: bold;
+    border: solid cadetblue 2px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .comment-info {

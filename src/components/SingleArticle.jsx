@@ -24,12 +24,12 @@ const SingleArticle = () => {
     }
 
     return (
-        <section className="single_article_grid">
-            <h2 id="single_article_title">{article.title}</h2>
-            <p id="single_article_date">{date}</p>
-            <p id="single_article_topic">Topic: {(article.topic)?.toUpperCase()}</p>
-            <img id="single_article_img" src={article.article_img_url} alt={article.title}/>
-            <p id="single_article_author">Author: {article.author}</p>
+        <section className="single-article-grid">
+            <h2 id="single-article-title">{article.title}</h2>
+            <p id="single-article-date">{date}</p>
+            <p id="single-article-topic">Topic: {(article.topic)?.toUpperCase()}</p>
+            <img id="single-article-img" src={article.article_img_url} alt={article.title}/>
+            <p id="single-article-author">Author: {article.author}</p>
             <Votes article={article} setArticle={setArticle}/>
             <Comments article_id={article_id}/>
         </section>

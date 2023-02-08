@@ -28,7 +28,7 @@ const AddComment = ({article_id, setComments}) => {
                 </textarea>
                 <button>POST</button>
             </form>
-            {commentPosted ? <p>Comment Posted</p> : null}
+            {commentPosted ? <p>Comment Posted!</p> : null}
         </section>
     )
 }
