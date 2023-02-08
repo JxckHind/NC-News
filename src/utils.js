@@ -31,6 +31,15 @@ export const fetchComments = (article_id) => {
 export const patchArticle = (article_id, body) => {
     return newsApi
     .patch(`articles/${article_id}`, body)
+}
+
+export const postComment = (article_id, newComment) => {
+    const request = {
+        "username": "tickle122",
+        "body" : newComment
+    }
+    return newsApi
+    .post(`articles/${article_id}/comments`, request)
     .then(({data}) => {
         return data;
     })

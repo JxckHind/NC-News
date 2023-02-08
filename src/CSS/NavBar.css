@@ -7,7 +7,7 @@
 }
 
 .navbar > li > * {
-    padding: 20px;
+    padding-left: 20px;
     font-size: larger;
     text-decoration: none;
     color: black;
