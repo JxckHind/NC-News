@@ -1,0 +1,19 @@
+.post-comment > p {
+    margin: 15px;
+}
+
+.post-comment-form > label {
+    padding-left: 15px;
+}
+
+.post-comment-form > textarea {
+    display: block;
+    margin: 15px;
+    width: 90%;
+    height: 75px;
+}
+
+.post-comment-form > button {
+    margin-left: 15px;
+    padding: 5px;
+}
