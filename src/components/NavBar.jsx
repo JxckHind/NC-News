@@ -6,16 +6,16 @@ const NavBar = () => {
         <section>
             <ul className='navbar'>
                 <li>
-                    <Link className="nav" to="/articles">Home</Link>   
+                    <Link className="nav" to="/articles" reloadDocument>Home</Link>   
                 </li>
                 <li>
-                    <Link className="nav" to="/articles?topic=coding">Coding</Link>
+                    <Link className="nav" to="/articles?topic=coding" reloadDocument>Coding</Link>
                 </li>
                 <li>
-                    <Link className="nav" to="/articles?topic=football">Football</Link>
+                    <Link className="nav" to="/articles?topic=football" reloadDocument>Football</Link>
                 </li>
                 <li>
-                    <Link className="nav" to="/articles?topic=cooking">Cooking</Link>
+                    <Link className="nav" to="/articles?topic=cooking" reloadDocument>Cooking</Link>
                 </li>
             </ul>
         </section>

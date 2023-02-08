@@ -4,9 +4,36 @@ export const newsApi = axios.create({
     baseURL: `https://jack-nc-news-ap.onrender.com/api/`
 })
 
-export const fetchArticles = (search) => {
+export const fetchArticles = (searchParams) => {
+
+    const params = Object.fromEntries(searchParams.entries());
+    
+    let url = "articles";
+
+    if (params.topic && !params.sort_by && !params.order) {
+        url += `?topic=${params.topic}`
+
+    } else if (params.topic && params.sort_by && !params.order) {
+        url += `?topic=${params.topic}&sort_by=${params.sort_by}`
+
+    } else if (params.topic && !params.sort_by && params.order) {
+        url += `?topic=${params.topic}&order=${params.order}`
+    
+    } else if (params.topic && params.sort_by && params.order) {
+        url += `?topic=${params.topic}&sort_by=${params.sort_by}&order=${params.order}`
+
+    } else if (params.sort_by && !params.order) {
+        url += `?sort_by=${params.sort_by}`
+
+    } else if (!params.sort_by && params.order) {
+        url += `?order=${params.order}`
+    
+    } else if (params.sort_by && params.order) {
+        url += `?sort_by=${params.sort_by}&order=${params.order}`
+    }
+
     return newsApi
-    .get(`articles${search}`)
+    .get(url)
     .then(({data}) => {
         return data;
     })
