@@ -3,11 +3,14 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Articles from './components/Articles';
 import SingleArticle from './components/SingleArticle';
+import LogIn from './components/LogIn'
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+
   return (
     <div className="App">
+      <LogIn/>
       <Header/>
       <NavBar/>
       <Routes>
