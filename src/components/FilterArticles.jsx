@@ -3,8 +3,8 @@ import "../CSS/FilterArticles.css"
 
 const FilterArticles = ({searchParams, setSearchParams}) => {
 
-    const [sortBy, setSortBy] = useState("");
-    const [order, setOrder] = useState("");
+    const [sortBy, setSortBy] = useState("created_at");
+    const [order, setOrder] = useState("desc");
 
     const params = Object.fromEntries(searchParams.entries());
 
