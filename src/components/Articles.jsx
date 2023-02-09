@@ -8,6 +8,7 @@ import FilterArticles from "./FilterArticles";
 const Articles = () => {
 
     const [isLoading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [articles, setArticles] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -19,11 +20,20 @@ const Articles = () => {
             setArticles(articlesObj.articles);
             setLoading(false);
         })
+        .catch((err) =>{
+            console.log(err);
+            setError(err);
+            setLoading(false);
+        })
     }, [searchParams])
 
     if (isLoading) {
         return <p className="articles-loading">Loading...</p>
     }
+
+    if (error) {
+        return <p className="topic-error-message">404 - Topic Not Found</p>
+    } 
 
     return (
         <section>
