@@ -7,33 +7,9 @@ export const newsApi = axios.create({
 export const fetchArticles = (searchParams) => {
 
     const params = Object.fromEntries(searchParams.entries());
-    
-    let url = "articles";
-
-    if (params.topic && !params.sort_by && !params.order) {
-        url += `?topic=${params.topic}`
-
-    } else if (params.topic && params.sort_by && !params.order) {
-        url += `?topic=${params.topic}&sort_by=${params.sort_by}`
-
-    } else if (params.topic && !params.sort_by && params.order) {
-        url += `?topic=${params.topic}&order=${params.order}`
-    
-    } else if (params.topic && params.sort_by && params.order) {
-        url += `?topic=${params.topic}&sort_by=${params.sort_by}&order=${params.order}`
-
-    } else if (params.sort_by && !params.order) {
-        url += `?sort_by=${params.sort_by}`
-
-    } else if (!params.sort_by && params.order) {
-        url += `?order=${params.order}`
-    
-    } else if (params.sort_by && params.order) {
-        url += `?sort_by=${params.sort_by}&order=${params.order}`
-    }
 
     return newsApi
-    .get(url)
+    .get('articles', {params})
     .then(({data}) => {
         return data;
     })
