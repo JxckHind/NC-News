@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../utils";
+import "../CSS/DeleteComment.css";
 
 const DeleteComment = ({comment, setComments}) => {
 
@@ -23,11 +24,10 @@ const DeleteComment = ({comment, setComments}) => {
     }
 
     return (
-        <section>
+        <section className="delete-comment">
             {loggedInUser.username === comment?.author ? <button onClick={() => handleDelete(comment.comment_id)}>Delete</button> : null}
         </section>
     )
-
 }
 
 export default DeleteComment;

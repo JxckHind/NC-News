@@ -3,12 +3,20 @@
     border-radius: 10px;
     margin: 15px;
     padding: 15px;
+    overflow: hidden;
 }
 
 .post-comment > p {
+    margin: 0;
     text-align: center;
     font-size: x-large;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 500px) {
+    .post-comment > p {
+        font-size: 1em;
+    }
 }
 
 .post-comment-form > textarea {
@@ -25,6 +33,7 @@
 }
 
 .post-comment-form > button {
+    float: right;
     padding: 5px;
 }
 
