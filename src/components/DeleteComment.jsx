@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../utils";
+import "../CSS/DeleteComment.css";
 
 const DeleteComment = ({comment, setComments}) => {
 
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const {loggedInUser} = useContext(UserContext);
 
     const handleDelete = (commentIDToDelete) => {
         if (window.confirm("Are you sure you want to delete this comment?")) {
@@ -23,11 +24,10 @@ const DeleteComment = ({comment, setComments}) => {
     }
 
     return (
-        <section>
+        <section className="delete-comment">
             {loggedInUser.username === comment?.author ? <button onClick={() => handleDelete(comment.comment_id)}>Delete</button> : null}
         </section>
     )
-
 }
 
 export default DeleteComment;

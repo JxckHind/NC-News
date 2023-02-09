@@ -1,0 +1,8 @@
+.delete-comment {
+    overflow: hidden;
+}
+
+.delete-comment > button {
+    padding: 5px;
+    float: right;
+}

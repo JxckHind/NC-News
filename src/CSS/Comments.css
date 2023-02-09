@@ -7,3 +7,7 @@
 .comments-title {
     padding-left: 15px;
 }
+
+.article-comments > ul {
+    display: block;
+}

@@ -6,19 +6,39 @@ import "../CSS/AddComment.css"
 
 const AddComment = ({article_id, setComments}) => {
 
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const {loggedInUser} = useContext(UserContext);
 
     const [newComment, setNewComment] = useState("");
     const [commentPosted, setCommentPosted] = useState(false);
+    const [isPosting, setIsPosting] = useState(false);
+    const [isEmpty, setIsEmpty] = useState(true);
 
     const handleNewComment = (e) => {
         e.preventDefault();
-        postComment(article_id, newComment, loggedInUser.username).then(({comment}) => {
-            setComments((currComments) => {
-                return [comment, ...currComments];
+        if (!isEmpty) {
+            setIsPosting(true);
+            postComment(article_id, newComment, loggedInUser.username).then(({comment}) => {
+                setComments((currComments) => {
+                    return [comment, ...currComments];
+                })
+                setNewComment("");
+                setCommentPosted(true);
+                setIsPosting(false);
+                setIsEmpty(true);
             })
-            setCommentPosted(true)
-        })
+        }
+    }
+
+    const onChange = (commentValue) => {
+        setNewComment(commentValue);
+        setCommentPosted(false);
+        if (commentValue.match(/[^\s*]/g)) {
+            setIsEmpty(false);
+        }
+    }
+    
+    if (isPosting) {
+        return <p className="comment-posting">Posting...</p>
     }
 
     return (
@@ -28,7 +48,7 @@ const AddComment = ({article_id, setComments}) => {
                 <textarea
                     id="new-comment"
                     value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}>
+                    onChange={(e) => onChange(e.target.value)}>
                 </textarea>
                 <button>POST</button>
             </form>
