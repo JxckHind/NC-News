@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { postComment } from "../utils";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 import "../CSS/AddComment.css"
 
 const AddComment = ({article_id, setComments}) => {
+
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
     const [newComment, setNewComment] = useState("");
     const [commentPosted, setCommentPosted] = useState(false);
 
     const handleNewComment = (e) => {
         e.preventDefault();
-        postComment(article_id, newComment).then(({comment}) => {
+        postComment(article_id, newComment, loggedInUser.username).then(({comment}) => {
             setComments((currComments) => {
                 return [comment, ...currComments];
             })

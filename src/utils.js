@@ -36,9 +36,10 @@ export const patchArticle = (article_id, body) => {
     .patch(`articles/${article_id}`, body)
 }
 
-export const postComment = (article_id, newComment) => {
+export const postComment = (article_id, newComment, loggedInUser) => {
+    console.log(loggedInUser);
     const request = {
-        "username": "tickle122",
+        "username": loggedInUser,
         "body" : newComment
     }
     return newsApi
@@ -46,4 +47,9 @@ export const postComment = (article_id, newComment) => {
     .then(({data}) => {
         return data;
     })
+}
+
+export const deleteComment = (comment_id) => {
+    return newsApi
+    .delete(`comments/${comment_id}`)
 }

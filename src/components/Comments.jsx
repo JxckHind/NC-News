@@ -25,8 +25,8 @@ const Comments = ({article_id}) => {
             <h3 className="comments-title">Comments:</h3>
             <AddComment article_id={article_id} setComments={setComments}/>
             <ul>
-                {comments.map((comment) => {
-                    return <Comment key={comment.comment_id} comment={comment}/>
+                {comments?.map((comment) => {
+                    return <Comment key={comment.comment_id} comment={comment} setComments={setComments}/>
                 })}
             </ul>
         </section>

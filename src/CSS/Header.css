@@ -1,3 +1,26 @@
 h1 {
     padding-left: 20px;
 }
+
+.header > * {
+    display: inline-block;
+}
+
+.header > img {
+    float: right;
+    width: 50px;
+    border: black solid 1.5px;
+    border-radius: 50%;
+    padding: 5px;
+    margin: 10px;
+    margin-right: 20px;
+    margin-left: 0;
+}
+
+.header > p {
+    float: right;
+    padding: 5px;
+    margin: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
