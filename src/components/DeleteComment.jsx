@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../utils";
 
 const DeleteComment = ({comment, setComments}) => {
 
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const {loggedInUser} = useContext(UserContext);
 
     const handleDelete = (commentIDToDelete) => {
         if (window.confirm("Are you sure you want to delete this comment?")) {
