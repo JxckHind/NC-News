@@ -7,17 +7,19 @@ const DeleteComment = ({comment, setComments}) => {
     const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
     const handleDelete = (commentIDToDelete) => {
-        setComments((currComments) => {
-            const comments = [...currComments];
-            comments.forEach((comment) => {
-                if (comment.comment_id === commentIDToDelete) {
-                    const commentIndex = comments.indexOf(comment);
-                    comments.splice(commentIndex, 1);
-                } 
+        if (window.confirm("Are you sure you want to delete this comment?")) {
+            setComments((currComments) => {
+                const comments = [...currComments];
+                comments.forEach((comment) => {
+                    if (comment.comment_id === commentIDToDelete) {
+                        const commentIndex = comments.indexOf(comment);
+                        comments.splice(commentIndex, 1);
+                    } 
+                })
+                return comments;
             })
-            return comments;
-        })
-        deleteComment(commentIDToDelete);
+            deleteComment(commentIDToDelete);
+        }
     }
 
     return (
