@@ -4,9 +4,12 @@ export const newsApi = axios.create({
     baseURL: `https://jack-nc-news-ap.onrender.com/api/`
 })
 
-export const fetchArticles = (search) => {
+export const fetchArticles = (searchParams) => {
+
+    const params = Object.fromEntries(searchParams.entries());
+
     return newsApi
-    .get(`articles${search}`)
+    .get('articles', {params})
     .then(({data}) => {
         return data;
     })
