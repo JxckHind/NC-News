@@ -8,6 +8,7 @@ import Votes from './Votes';
 const SingleArticle = () => {
 
     const [isLoading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [article, setArticle] = useState({})
     const {article_id} = useParams();
     const date = new Date(article.created_at).toLocaleDateString()
@@ -17,11 +18,20 @@ const SingleArticle = () => {
             setArticle(articleObj.article);
             setLoading(false);
         })
+        .catch((err) =>{
+            console.log(err);
+            setError(err);
+            setLoading(false);
+        })
     }, [article_id])
 
     if (isLoading) {
         return <p className="article-loading">Loading...</p>
     }
+
+    if (error) {
+        return <p className="article-error-message">404 - Article Not Found</p>
+    } 
 
     return (
         <section className="single-article-grid">
