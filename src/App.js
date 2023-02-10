@@ -5,7 +5,7 @@ import Articles from './components/Articles';
 import SingleArticle from './components/SingleArticle';
 import LogIn from './components/LogIn'
 import PathError from './components/PathError';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
 
@@ -16,6 +16,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="*" element={<PathError/>}/>
+        <Route path="/" element={<Navigate to="/articles"/>}/>
         <Route path="/articles" element={<Articles/>}></Route>
         <Route path="/articles/:article_id" element={<SingleArticle/>}></Route>
       </Routes>
