@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import "../CSS/AddComment.css"
 
-const AddComment = ({article_id, setComments}) => {
+const AddComment = ({article_id, setComments, commentDeleted, setCommentDeleted}) => {
 
     const {loggedInUser} = useContext(UserContext);
 
@@ -32,6 +32,7 @@ const AddComment = ({article_id, setComments}) => {
     const onChange = (commentValue) => {
         setNewComment(commentValue);
         setCommentPosted(false);
+        setCommentDeleted(false);
         if (commentValue.match(/[^\s*]/g)) {
             setIsEmpty(false);
         }
@@ -39,6 +40,10 @@ const AddComment = ({article_id, setComments}) => {
     
     if (isPosting) {
         return <p className="comment-posting">Posting...</p>
+    }
+
+    if (!loggedInUser.username) {
+        return <p className="check-loggedin">Please Log In To Place A Comment</p>
     }
 
     return (
@@ -52,7 +57,8 @@ const AddComment = ({article_id, setComments}) => {
                 </textarea>
                 <button>POST</button>
             </form>
-            {commentPosted ? <p>Comment Posted!</p> : null}
+            {commentPosted && !commentDeleted? <p>Comment Posted!</p> : null}
+            {commentDeleted ? <p>Comment Deleted!</p> : null}
         </section>
     )
 }

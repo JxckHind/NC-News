@@ -1,12 +1,25 @@
-.single_article_votes {
+.single-article-votes {
     grid-area: votes;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 3px;
+    margin-top: 13px;
 }
 
-.single_article_votes > * {
+.single-article-votes > * {
     display: inline-block;
     padding: 5px;
     margin: 5px;
+}
+
+.votes-no-loggin {
+    font-size: large;
+}
+
+@media only screen and (max-width: 725px) {
+    .single-article-votes {
+        margin-top: 0;
+        padding-top: 6px;
+    }
+
+    .single-article-votes > .dislike {
+        margin-right: 0;
+    }
 }

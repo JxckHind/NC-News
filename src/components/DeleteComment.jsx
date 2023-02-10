@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../utils";
 import "../CSS/DeleteComment.css";
 
-const DeleteComment = ({comment, setComments}) => {
+const DeleteComment = ({comment, setComments, setCommentDeleted}) => {
 
     const {loggedInUser} = useContext(UserContext);
 
@@ -20,12 +20,13 @@ const DeleteComment = ({comment, setComments}) => {
                 return comments;
             })
             deleteComment(commentIDToDelete);
+            setCommentDeleted(true);
         }
     }
 
     return (
         <section className="delete-comment">
-            {loggedInUser.username === comment?.author ? <button onClick={() => handleDelete(comment.comment_id)}>Delete</button> : null}
+            {loggedInUser.username === comment?.author ? <button onClick={() => handleDelete(comment.comment_id)}>DELETE</button> : null}
         </section>
     )
 }

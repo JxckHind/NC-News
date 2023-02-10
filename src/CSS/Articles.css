@@ -1,6 +1,9 @@
 section > ul {
     padding-left: 0;
     list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 section > h2 {
@@ -15,7 +18,7 @@ section > h2 {
 }
 
 .article-link:hover {
-    color:blue;
+    color:#209CEE;
 }
 
 .articles-loading {
@@ -28,12 +31,4 @@ section > h2 {
     font-size: xx-large;
     font-weight: bolder;
     text-align: center;
-}
-
-@media only screen and (min-width: 1020px) {
-    section > ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
 }

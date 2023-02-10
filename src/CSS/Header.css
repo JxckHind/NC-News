@@ -1,5 +1,8 @@
 h1 {
+    font-size: xx-large;
     padding-left: 20px;
+    margin-top: 13px;
+    margin-bottom: 20px
 }
 
 .header > * {
@@ -8,32 +11,52 @@ h1 {
 
 .header > img {
     float: right;
+    height: 50px;
     width: 50px;
     border: black solid 1.5px;
     border-radius: 50%;
     padding: 5px;
-    margin: 10px;
-    margin-right: 20px;
+    margin: 5px;
+    margin-right: 0;
     margin-left: 0;
 }
 
 .header > p {
     float: right;
-    padding: 5px;
-    margin: 20px;
-    margin-right: 10px;
+    margin: 25px;
+    margin-right: 20px;
     font-weight: bold;
+    color: cadetblue;
 }
 
-@media only screen and (max-width: 500px) {
+.header > button {
+    float: right;
+    padding: 5px;
+    margin: 20px;
+}
+
+@media only screen and (max-width: 592px) {
     .header > img {
+        height: 40px;
         width: 40px;
-        margin: 15px;
-        margin-left: 0;
+        margin-top: 8px;
+        margin-right: 20px;
     }
+
     .header > p {
-        font-size: 0.7em;
-        margin: 25px;
-        margin-right: 5px;
+        float: none;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 20px;
+        margin-right: 100px;
+        font-weight: bold;
+    }
+
+    .header > button {
+        float: right;
+        padding: 5px;
+        margin: 20px;
+        margin-top: 20px;
+        margin-left: 0;
     }
 }
