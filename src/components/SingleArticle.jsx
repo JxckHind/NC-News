@@ -41,6 +41,7 @@ const SingleArticle = () => {
             <img id="single-article-img" src={article.article_img_url} alt={article.title}/>
             <p id="single-article-author">Author: {article.author}</p>
             <Votes article={article} setArticle={setArticle}/>
+            <p id="single-article-body">{article.body}</p>
             <Comments article_id={article_id}/>
         </section>
     )

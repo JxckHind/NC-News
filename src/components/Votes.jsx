@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../contexts/UserContext";
 import { patchArticle } from "../utils"
 import "../CSS/Votes.css"
 
 const Votes = ({article, setArticle}) => {
+
+    const {loggedInUser} = useContext(UserContext);
 
     const [isOffline, setIsOffline] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
@@ -82,11 +85,15 @@ const Votes = ({article, setArticle}) => {
         }
     }
     
+    if (!loggedInUser.username) {
+        return <p className="votes-no-loggin">Votes: {article.votes}</p>;
+    }
+     
     return (
-        <section className="single_article_votes">
+        <section className="single-article-votes">
             <button onClick={handleLike}>Like 👍🏻</button>
             <p>{article.votes}</p>
-            <button onClick={handleDislike}>Dislike 👎🏻</button>
+            <button className="dislike" onClick={handleDislike}>Dislike 👎🏻</button>
             {isOffline ? <p>Network Offline</p> : null}
         </section>
     )

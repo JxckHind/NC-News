@@ -4,6 +4,7 @@
 
 .navbar > li {
     display: inline-block;
+    margin: 0;
 }
 
 .navbar > li > * {
@@ -14,6 +15,6 @@
 }
 
 .nav:hover {
-    color:blue;
+    color:#209CEE;
     font-weight: bold;
 }

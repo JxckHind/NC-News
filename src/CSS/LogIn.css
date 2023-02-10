@@ -1,0 +1,54 @@
+.users-loading {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.user-login > * {
+    text-align: center;
+}
+
+.user-login > h3 {
+    font-size: xx-large;
+}
+
+.user-login > form > label {
+    font-size: large;
+}
+
+.user-login > form > select {
+    font-size: large;
+    padding: 5px;
+    margin: 10px;
+}
+
+.user-login > form > button {
+    font-size: large;
+    padding: 5px;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+    .user-login > h3 {
+        font-size: x-large;
+    }
+    
+    .user-login > form > label {
+        font-size: medium;
+    }
+    
+    .user-login > form > select {
+        font-size: medium;
+        padding: 5px;
+        margin: 10px;
+    }
+    
+    .user-login > form > button {
+        font-size: medium;
+        padding: 5px;
+        margin: 10px;
+    }
+}
+
+
+

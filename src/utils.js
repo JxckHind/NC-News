@@ -37,7 +37,6 @@ export const patchArticle = (article_id, body) => {
 }
 
 export const postComment = (article_id, newComment, loggedInUser) => {
-    console.log(loggedInUser);
     const request = {
         "username": loggedInUser,
         "body" : newComment
@@ -52,4 +51,12 @@ export const postComment = (article_id, newComment, loggedInUser) => {
 export const deleteComment = (comment_id) => {
     return newsApi
     .delete(`comments/${comment_id}`)
+}
+
+export const fetchUsers = () => {
+    return newsApi
+    .get('users')
+    .then(({data}) => {
+        return data;
+    })
 }
