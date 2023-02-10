@@ -20,7 +20,7 @@ const NavBar = () => {
                     <Link className="nav" to="/articles?topic=football" onClick={() => setNavTopicOnClick("football")}>Football</Link>
                 </li>
                 <li>
-                    <Link className="nav" to="/articles?topic=cooking" onClick={() => setNavTopicOnClick("cooking")}>Cooking</Link>
+                    <Link className="cooking" to="/articles?topic=cooking" onClick={() => setNavTopicOnClick("cooking")}>Cooking</Link>
                 </li>
             </ul>
         </section>

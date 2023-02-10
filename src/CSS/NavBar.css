@@ -18,3 +18,18 @@
     color:#209CEE;
     font-weight: bold;
 }
+
+.cooking:hover {
+    color:#209CEE;
+    font-weight: bold; 
+}
+
+@media only screen and (max-width: 725px) {
+    .navbar > li {
+        margin: auto;
+    }
+
+    .navbar > li > .cooking {
+        padding-right: 20px;
+    }
+}
