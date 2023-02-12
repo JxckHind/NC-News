@@ -3,85 +3,92 @@ import { UserContext } from "../contexts/UserContext";
 import { patchArticle } from "../utils"
 import "../CSS/Votes.css"
 
-const Votes = ({article, setArticle}) => {
+const Votes = ({article}) => {
 
     const {loggedInUser} = useContext(UserContext);
 
     const [isOffline, setIsOffline] = useState(false);
+    const [voteChange, setVoteChange] = useState(0);
     const [isLiked, setIsLiked] = useState(false);
     const [isDisliked, setIsDisliked] = useState(false);
     
     const handleLike = () => {
         if (!isLiked && !isDisliked) {
-            setArticle((currArticle) => {
-                return {...currArticle, votes: currArticle.votes + 1};
-            })
-            const body = {
-                "inc_votes": 1
-            }
+            setVoteChange(voteChange + 1);
             setIsOffline(false);
-            patchArticle(article.article_id, body).catch((err) => {
+            patchArticle(article.article_id, 1).catch((err) => {
                 console.log(err);
-                setArticle((currArticle) => {
-                    return {...currArticle, votes: currArticle.votes - 1};
-                })
+                setVoteChange(0);
                 setIsOffline(true);
             })
+            document.getElementById("like").style.backgroundColor = "green";
+            document.getElementById("like").style.color = "white";
             setIsLiked(true);
-        } else if (!isLiked && isDisliked) {
-            setArticle((currArticle) => {
-                return {...currArticle, votes: currArticle.votes + 2};
-            })
-            const body = {
-                "inc_votes": +2
-            }
+        } else if (isLiked && !isDisliked){
+            setVoteChange(voteChange - 1);
             setIsOffline(false);
-            patchArticle(article.article_id, body).catch((err) => {
+            patchArticle(article.article_id, -1).catch((err) => {
                 console.log(err);
-                setArticle((currArticle) => {
-                    return {...currArticle, votes: currArticle.votes - 2};
-                })
+                setVoteChange(0);
+                setIsOffline(true);
+            })
+            document.getElementById("like").style.backgroundColor = null;
+            document.getElementById("like").style.color = null;
+            setIsLiked(false);
+        } else if (!isLiked && isDisliked) {
+            setVoteChange(voteChange + 2);
+            setIsOffline(false);
+            patchArticle(article.article_id, 2).catch((err) => {
+                console.log(err);
+                setVoteChange(0);
                 setIsOffline(true); 
             })
             setIsLiked(true);
             setIsDisliked(false);
+            document.getElementById("like").style.backgroundColor = "green";
+            document.getElementById("like").style.color = "white";
+            document.getElementById("dislike").style.backgroundColor = null;
+            document.getElementById("dislike").style.color = null;
         }
     }
 
     const handleDislike = () => {
         if (!isDisliked && !isLiked) {
-            setArticle((currArticle) => {
-                return {...currArticle, votes: currArticle.votes - 1};
-            })
-            const body = {
-                "inc_votes": -1
-            }
+            setVoteChange(voteChange + -1);
             setIsOffline(false);
-            patchArticle(article.article_id, body).catch((err) => {
+            patchArticle(article.article_id, -1).catch((err) => {
                 console.log(err);
-                setArticle((currArticle) => {
-                    return {...currArticle, votes: currArticle.votes + 1};
-                })
+                setVoteChange(0);
                 setIsOffline(true); 
             })
             setIsDisliked(true);
-        } else if (!isDisliked && isLiked) {
-            setArticle((currArticle) => {
-                return {...currArticle, votes: currArticle.votes - 2};
-            })
-            const body = {
-                "inc_votes": -2
-            }
+            document.getElementById("dislike").style.backgroundColor = "red";
+            document.getElementById("dislike").style.color = "white";
+        } else if (isDisliked && !isLiked) {
+            setVoteChange(voteChange + 1);
             setIsOffline(false);
-            patchArticle(article.article_id, body).catch((err) => {
+            patchArticle(article.article_id, 1).catch((err) => {
                 console.log(err);
-                setArticle((currArticle) => {
-                    return {...currArticle, votes: currArticle.votes + 2};
-                })
+                setVoteChange(0);
+                setIsOffline(true); 
+            })
+            setIsDisliked(false);
+            document.getElementById("dislike").style.backgroundColor = null;
+            document.getElementById("dislike").style.color = null;
+        } else if (!isDisliked && isLiked) {
+            setVoteChange(voteChange + -2);
+            setIsOffline(false);
+            patchArticle(article.article_id, -2).catch((err) => {
+                console.log(err);
+                setVoteChange(0);
                 setIsOffline(true); 
             })
             setIsDisliked(true);
             setIsLiked(false);
+            document.getElementById("dislike").style.backgroundColor = "red";
+            document.getElementById("dislike").style.color = "white";
+            document.getElementById("like").style.backgroundColor = null;
+            document.getElementById("like").style.color = null;
         }
     }
     
@@ -91,9 +98,9 @@ const Votes = ({article, setArticle}) => {
      
     return (
         <section className="single-article-votes">
-            <button onClick={handleLike}>Like 👍🏻</button>
-            <p>{article.votes}</p>
-            <button className="dislike" onClick={handleDislike}>Dislike 👎🏻</button>
+            <button onClick={handleLike} id="like">Like 👍🏻</button>
+            <p>{article.votes + voteChange}</p>
+            <button className="dislike" onClick={handleDislike} id="dislike">Dislike 👎🏻</button>
             {isOffline ? <p>Network Offline</p> : null}
         </section>
     )

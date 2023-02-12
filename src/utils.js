@@ -31,7 +31,12 @@ export const fetchComments = (article_id) => {
     })
 }
 
-export const patchArticle = (article_id, body) => {
+export const patchArticle = (article_id, voteChange) => {
+
+    const body = {
+        "inc_votes": voteChange 
+    }
+
     return newsApi
     .patch(`articles/${article_id}`, body)
 }
