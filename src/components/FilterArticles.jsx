@@ -13,9 +13,6 @@ const FilterArticles = ({searchParams, setSearchParams}) => {
 
     const params = Object.fromEntries(searchParams.entries());
 
-    console.log(navTopicOnClick, "<-- navClick");
-    console.log(filterTopicOnClick, "<-- filterClick");
-
     if (navTopicOnClick !== filterTopicOnClick) {
         document.getElementById("form")?.reset();
     }
