@@ -9,4 +9,11 @@ button {
     border: solid black 1px;
     border-radius: 10px;
     color: black;
+    background-color:aliceblue;
+}
+
+select {
+    background-color: aliceblue;
+    border: 1px solid black;
+    color: black;
 }

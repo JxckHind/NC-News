@@ -8,9 +8,8 @@
 }
 
 .filter > form > section > select {
-    padding: 3px;
     margin-right:20px; 
-    width: 140px
+    width: 140px;
 }
 
 .filter > form > button {
@@ -25,9 +24,5 @@
         margin-top: 5px;
         margin-bottom: 5px;
         width: auto;
-    }
-
-    .filter > form > button {
-        margin-top: 5px;
     }
 }
