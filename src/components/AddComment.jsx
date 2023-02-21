@@ -2,11 +2,14 @@ import { useState } from "react";
 import { postComment } from "../utils";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 import "../CSS/AddComment.css"
 
 const AddComment = ({article_id, setComments, commentDeleted, setCommentDeleted}) => {
 
     const {loggedInUser} = useContext(UserContext);
+
+    const navigate = useNavigate();
 
     const [newComment, setNewComment] = useState("");
     const [commentPosted, setCommentPosted] = useState(false);
@@ -29,6 +32,10 @@ const AddComment = ({article_id, setComments, commentDeleted, setCommentDeleted}
         }
     }
 
+    const handleLogIn = () => {
+        navigate("/login")
+    }
+
     const onChange = (commentValue) => {
         setNewComment(commentValue);
         setCommentPosted(false);
@@ -43,7 +50,12 @@ const AddComment = ({article_id, setComments, commentDeleted, setCommentDeleted}
     }
 
     if (!loggedInUser.username) {
-        return <p className="check-loggedin">Please Log In To Place A Comment</p>
+        return (
+            <section className="check-loggedin">
+                <p>Please Log In To Place A Comment</p>
+                <button onClick={handleLogIn}>Log In</button>
+            </section>
+        )
     }
 
     return (

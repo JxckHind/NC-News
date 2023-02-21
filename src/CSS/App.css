@@ -6,14 +6,19 @@
 }
 
 button {
-    border: solid black 1px;
+    border: 1px solid black;
     border-radius: 10px;
     color: black;
     background-color:aliceblue;
+    padding: 5px;
+    font-size: medium;
 }
 
 select {
-    background-color: aliceblue;
     border: 1px solid black;
+    border-radius: 10px;
     color: black;
+    background-color: aliceblue;
+    padding: 2px;
+    font-size: medium;
 }

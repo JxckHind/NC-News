@@ -8,6 +8,7 @@
 
 .post-comment > p {
     margin: 0;
+    padding-top: 5.5px;
     text-align: center;
     font-size: large;
     font-weight: bold;
@@ -34,7 +35,6 @@
 
 .post-comment-form > button {
     float: right;
-    padding: 5px;
 }
 
 .comment-posting {
@@ -47,4 +47,8 @@
     font-size: large;
     font-weight: bolder;
     text-align: center;
+}
+
+.check-loggedin > button {
+    margin-bottom: 3px;
 }

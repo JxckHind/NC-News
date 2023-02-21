@@ -1,13 +1,21 @@
 .comments-loading {
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bolder;
     text-align: center;
 }
 
 .comments-title {
-    padding-left: 15px;
+    font-size: x-large;
+    margin-top: 5px;
+    margin-bottom: 29px;
+    text-align: center;
 }
 
 .article-comments > ul {
     display: block;
+}
+
+.article-comments {
+    grid-area: comments;
+    max-width: 1000px;
 }

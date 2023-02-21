@@ -14,6 +14,8 @@ When a user logs in, they are able to do the following:
 
 ## Link To The Deployed Application: https://nc-news-project.netlify.app
 
+### ❗️The backend is hosted with a free provider and so may take some time to load if the website hasn't been used in a while❗️
+
 # Setup
 
 ## Installation requirements:

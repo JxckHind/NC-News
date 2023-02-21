@@ -9,6 +9,7 @@
 }
 
 .user-login > h3 {
+    margin-top: 34px;
     font-size: xx-large;
 }
 
@@ -18,19 +19,19 @@
 
 .user-login > form > select {
     font-size: large;
-    padding: 5px;
     margin: 10px;
 }
 
 .user-login > form > button {
-    font-size: large;
-    padding: 5px;
+    font-size: medium;
+    padding: 4px;
     margin: 10px;
 }
 
 @media only screen and (max-width: 500px) {
     .user-login > h3 {
         font-size: x-large;
+        margin-bottom: 10px;
     }
     
     .user-login > form > label {
