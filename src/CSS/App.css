@@ -22,3 +22,17 @@ select {
     padding: 2px;
     font-size: medium;
 }
+
+@media only screen and (min-width: 725px) {
+    button:hover {
+        background-color: #209CEE;
+        font-weight: bold;
+        color: white;
+    }
+
+    select:hover {
+        background-color: #209CEE;
+        font-weight: bold;
+        color: white;
+    }
+}
