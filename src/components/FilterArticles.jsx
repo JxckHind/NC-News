@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TopicOnClickContext } from "../contexts/TopicOnClickContext";
 import { TopicOnFilterContext } from "../contexts/TopicOnFilterContext";
 import "../CSS/FilterArticles.css"
@@ -17,14 +17,20 @@ const FilterArticles = ({searchParams, setSearchParams}) => {
         document.getElementById("form")?.reset();
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    useEffect(() => {
         const updatedParams = {
             ...params,
             "sort_by" : sortBy,
             "order" : order
         }
         setSearchParams(updatedParams);
+    }, [sortBy, order])
+
+    const handleReset = (e) => {
+        e.preventDefault();
+        setSortBy("created_at");
+        setOrder("desc");
+        document.getElementById("form")?.reset();
     }
 
     const sortByChange = (sortByValue) => {
@@ -39,7 +45,7 @@ const FilterArticles = ({searchParams, setSearchParams}) => {
 
     return (
         <section className="filter">
-            <form onSubmit={handleSubmit} id="form">
+            <form onSubmit={handleReset} id="form">
                 <section>
                     <label htmlFor="sort-by">Sort By: </label>
                     <select id="sort-by" defaultValue="created_at" onChange={(e) => sortByChange(e.target.value)}>
@@ -55,7 +61,7 @@ const FilterArticles = ({searchParams, setSearchParams}) => {
                         <option value="asc">Ascending</option>
                     </select>
                 </section>
-                <button>Filter</button>
+                <button>Reset</button>
             </form>
         </section>
     )
