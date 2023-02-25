@@ -23,6 +23,42 @@ select {
     font-size: medium;
 }
 
+.loading {
+    left: 50%;
+    top: 200px;
+    font-size: xx-large;
+    font-weight: bold;
+    letter-spacing: 2px;
+    position: absolute;
+    overflow: hidden;
+    transform: translate(-50%, -60%);
+}
+.loading:before {
+    color: #aaa;
+    content: attr(data-loading-text);
+}
+    
+.loading:after {
+    top: 0;
+    left: 0;
+    width: 0;
+    opacity: 1;
+    color: #444;
+    overflow: hidden;
+    position: absolute;
+    content: attr(data-loading-text);
+    animation: loading 0.3s infinite;
+}
+    
+@keyframes loading {
+    0% { 
+        width: 0; 
+    }
+    100% {
+        width: 100%; 
+    }
+}
+
 @media only screen and (min-width: 725px) {
     button:hover {
         background-color: #209CEE;

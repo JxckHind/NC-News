@@ -28,7 +28,7 @@ const Articles = () => {
     }, [searchParams])
 
     if (isLoading) {
-        return <p className="articles-loading">Loading...</p>
+        return <div className="loading" data-loading-text="Loading..."></div>
     }
 
     if (error) {

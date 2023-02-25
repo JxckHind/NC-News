@@ -34,7 +34,7 @@ const LogIn = () => {
     }
 
     if (isLoading) {
-        return <p className="users-loading">Loading...</p>
+        return <div className="loading" data-loading-text="Loading..."></div>
     }
 
     return (

@@ -24,6 +24,7 @@ const FilterArticles = ({searchParams, setSearchParams}) => {
             "order" : order
         }
         setSearchParams(updatedParams);
+        // eslint-disable-next-line
     }, [sortBy, order])
 
     const handleReset = (e) => {
