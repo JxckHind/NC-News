@@ -1,4 +1,4 @@
-section > ul {
+.article-list {
     padding-left: 0;
     list-style: none;
     display: flex;
@@ -31,4 +31,10 @@ section > h2 {
     font-size: xx-large;
     font-weight: bolder;
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .article-link {
+        display: contents;
+    }
 }

@@ -16,3 +16,9 @@
     display: inline-block;
     padding-right: 40px;
 }
+
+@media only screen and (max-width: 500px) {
+    .comment {
+        font-size: 0.9rem;
+    }
+}
