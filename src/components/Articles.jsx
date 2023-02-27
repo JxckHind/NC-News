@@ -28,7 +28,7 @@ const Articles = () => {
     }, [searchParams])
 
     if (isLoading) {
-        return <p className="articles-loading">Loading...</p>
+        return <div className="loading" data-loading-text="Loading..."></div>
     }
 
     if (error) {
@@ -39,11 +39,11 @@ const Articles = () => {
         <section>
             {topicCap ? <h2>{topicCap} News</h2> : <h2>Latest News</h2>}
             <FilterArticles searchParams={searchParams} setSearchParams={setSearchParams}/>
-            <ul>
+            <ul className="article-list">
                 {articles.map((article) => {
                     return (
                     <Link className="article-link" to={`/articles/${article.article_id}`} key={article.article_id}>
-                    <Article article={article}/>
+                        <Article article={article}/>
                     </Link>
                 )})}
             </ul>

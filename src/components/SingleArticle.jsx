@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchArticle } from '../utils';
+import { fetchArticle, fetchComments } from '../utils';
 import "../CSS/SingleArticle.css"
 import Comments from './Comments';
 import Votes from './Votes';
@@ -10,12 +10,14 @@ const SingleArticle = () => {
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [article, setArticle] = useState({})
+    const [comments, setComments] = useState([]);
     const {article_id} = useParams();
     const date = new Date(article.created_at).toLocaleDateString()
 
     useEffect(() => {
-        fetchArticle(article_id).then((articleObj) => {
-            setArticle(articleObj.article);
+        Promise.all([fetchArticle(article_id), fetchComments(article_id)]).then((data) => {
+            setArticle(data[0].article);
+            setComments(data[1].comments);
             setLoading(false);
         })
         .catch((err) =>{
@@ -26,7 +28,7 @@ const SingleArticle = () => {
     }, [article_id])
 
     if (isLoading) {
-        return <p className="article-loading">Loading...</p>
+        return <div className="loading" data-loading-text="Loading..."></div>
     }
 
     if (error) {
@@ -42,7 +44,7 @@ const SingleArticle = () => {
             <p id="single-article-author">Author: {article.author}</p>
             <Votes article={article} setArticle={setArticle}/>
             <p id="single-article-body">{article.body}</p>
-            <Comments article_id={article_id}/>
+            <Comments article_id={article_id} comments={comments} setComments={setComments}/>
         </section>
     )
 }
