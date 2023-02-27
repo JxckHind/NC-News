@@ -14,9 +14,6 @@
 .article-comments > ul {
     padding-left: 0;
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 .article-comments {
