@@ -49,13 +49,9 @@ h1 {
         margin-top: 0;
         margin-left: 22px;
         margin-right: 100px;
-        font-weight: bold;
     }
 
     .header > button {
-        float: right;
-        padding: 5px;
-        margin: 20px;
         margin-left: 0;
     }
 }
